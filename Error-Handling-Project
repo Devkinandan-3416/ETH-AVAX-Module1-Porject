@@ -1,0 +1,21 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.7;
+
+contract errHandle {
+    function doRequire(uint num) external pure returns(uint) {
+        require(num<=10, "Num should be less than or equal to 10.");
+        return num*num;
+    }
+
+    function doRevert(uint num1, uint num2) external pure returns(uint) {
+        if(num1<num2) {
+            revert("num1 should be greater than num2.");
+        }
+        return num1-num2;
+    }
+
+    function doAssert(uint num1, uint num2) external pure returns(uint) {
+        assert(num2 != 0);
+        return num1/num2;
+    }
+}
